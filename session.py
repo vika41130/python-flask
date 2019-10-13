@@ -1,8 +1,10 @@
 from flask import Flask, request, abort, session, redirect, url_for, render_template, make_response, jsonify
 from os.path import join, realpath, dirname
+import os
 
 app = Flask(__name__)
-app.secret_key = b'123456789qwe'
+app.secret_key = os.urandom(16)
+print('secret key', app.secret_key)
 
 
 @app.route('/')
